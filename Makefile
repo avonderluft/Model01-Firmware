@@ -1,10 +1,11 @@
-# This stub makefile for a Kaleidoscope plugin pulls in 
+# This stub makefile for a Kaleidoscope plugin pulls in
 # all targets from the Kaleidoscope-Plugin library
 
 UNAME_S := $(shell uname -s)
 
 ifeq ($(UNAME_S),Darwin)
-SKETCHBOOK_DIR ?= $(HOME)/Documents/Arduino
+# SKETCHBOOK_DIR ?= $(HOME)/Documents/Arduino
+SKETCHBOOK_DIR ?= $(HOME)/dev/Arduino
 PACKAGE_DIR ?= $(HOME)/Library/Arduino15
 else
 SKETCHBOOK_DIR ?= $(HOME)/Arduino
@@ -37,7 +38,7 @@ $(info $(SKETCHBOOK_DIR)/hardware/keyboardio/ which was installed by hand.)
 $(info )
 $(info ***************************************************************************)
 $(info )
-	
+
 endif
 
 BOARD_HARDWARE_PATH = $(ARDUINO_INSTALLED_ENV)
@@ -52,9 +53,9 @@ endif
 BOARD_HARDWARE_PATH ?= $(SKETCHBOOK_DIR)/hardware
 KALEIDOSCOPE_PLUGIN_MAKEFILE_DIR ?= keyboardio/build-tools/makefiles/
 
-# If Kaleidoscope's Arduino libraries cannot be found, e.g. because 
-# they reside outside of SKETCHBOOK_DIR, we fall back to assuming that 
-# the hardware directory can be determined in relation to the position of 
+# If Kaleidoscope's Arduino libraries cannot be found, e.g. because
+# they reside outside of SKETCHBOOK_DIR, we fall back to assuming that
+# the hardware directory can be determined in relation to the position of
 # this Makefile.
 ifeq ("$(wildcard $(BOARD_HARDWARE_PATH)/keyboardio/build-tools/makefiles/rules.mk)","")
    # Determine the path of this Makefile
