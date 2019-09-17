@@ -475,12 +475,11 @@ KALEIDOSCOPE_INIT_PLUGINS(
   // running through all the colors of the rainbow.
   // LEDRainbowEffect,
 
-  // These static effects turn your keyboard's LEDs a variety of colors
-  // solidRed, solidOrange, solidYellow, solidGreen, solidBlue, solidIndigo, solidViolet,
-  solidGreen, solidIndigo, solidViolet,
-
   // The breathe effect slowly pulses all of the LEDs on your keyboard
   LEDBreatheEffect,
+
+  // These static effects turn your keyboard's LEDs a variety of colors
+  solidRed, solidOrange, solidYellow, solidGreen, solidBlue, solidIndigo, solidViolet,
 
   // The AlphaSquare effect prints each character you type, using your
   // keyboard's LEDs as a display
@@ -491,7 +490,7 @@ KALEIDOSCOPE_INIT_PLUGINS(
 
   // The LED Palette Theme plugin provides a shared palette for other plugins,
   // like Colormap below
-  LEDPaletteTheme,
+  // LEDPaletteTheme,
 
   // The Colormap effect makes it possible to set up per-layer colormaps
   ColormapEffect,
