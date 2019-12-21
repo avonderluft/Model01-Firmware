@@ -12,11 +12,8 @@ SKETCHBOOK_DIR ?= $(HOME)/Arduino
 PACKAGE_DIR ?= $(HOME)/.arduino15
 endif
 
-
 ARDUINO_INSTALLED_ENV=$(shell ls -dt $(PACKAGE_DIR)/packages/keyboardio/hardware/avr 2>/dev/null |head -n 1)
 MANUALLY_INSTALLED_ENV=$(shell ls -dt $(SKETCHBOOK_DIR)/hardware/keyboardio/avr 2>/dev/null |head -n 1)
-
-
 
 ifneq ("$(wildcard $(ARDUINO_INSTALLED_ENV)/boards.txt)","")
 
@@ -41,10 +38,9 @@ $(info )
 
 endif
 
-BOARD_HARDWARE_PATH = $(ARDUINO_INSTALLED_ENV)
+# BOARD_HARDWARE_PATH = $(ARDUINO_INSTALLED_ENV)
 KALEIDOSCOPE_PLUGIN_MAKEFILE_DIR ?= build-tools/makefiles/
 KALEIDOSCOPE_BUILDER_DIR ?= $(ARDUINO_INSTALLED_ENV)/libraries/Kaleidoscope/bin/
-
 
 
 endif
@@ -60,12 +56,13 @@ KALEIDOSCOPE_PLUGIN_MAKEFILE_DIR ?= keyboardio/build-tools/makefiles/
 ifeq ("$(wildcard $(BOARD_HARDWARE_PATH)/keyboardio/build-tools/makefiles/rules.mk)","")
    # Determine the path of this Makefile
    MKFILE_DIR:=$(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
-   BOARD_HARDWARE_PATH = $(MKFILE_DIR)/../../../..
+   BOARD_HARDWARE_PATH = $(MKFILE_DIR)/../hardware
 endif
 
 ifeq ("$(wildcard $(BOARD_HARDWARE_PATH)/keyboardio/build-tools/makefiles/rules.mk)","")
 $(info ***************************************************************************)
 $(info Unable to autodetect a proper BOARD_HARDWARE_PATH. Please define it manually.)
+$(info $(BOARD_HARDWARE_PATH) is the configured path.)
 $(info ***************************************************************************)
 $(info )
 endif
